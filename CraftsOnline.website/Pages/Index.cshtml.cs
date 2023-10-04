@@ -1,14 +1,14 @@
-﻿using CraftsOnline.website.models;
+﻿using System.Collections.Generic;
+using CraftsOnline.website.models;
 using CraftsOnline.website.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
 namespace CraftsOnline.website.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public JsonFileProductService ProductService;
-        public IEnumerable<Product> Products { get; private set; }
 
         public IndexModel(ILogger<IndexModel> logger,
             JsonFileProductService productService)
@@ -17,10 +17,9 @@ namespace CraftsOnline.website.Pages
             ProductService = productService;
         }
 
-        public void OnGet()
-        {
-            /*Event fired when someone gets the page */
-            Products = ProductService.GetProducts();
-        }
+        public JsonFileProductService ProductService { get; }
+        public IEnumerable<Product>? Products { get; private set; }
+
+        public void OnGet() => Products = ProductService.GetProducts();
     }
 }

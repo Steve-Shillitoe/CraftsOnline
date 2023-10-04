@@ -1,25 +1,48 @@
-var builder = WebApplication.CreateBuilder(args);
+//using CraftsOnline.website;
+//using Microsoft.AspNetCore.Hosting;
+//using Microsoft.Extensions.Hosting;
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+//var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+//// Add services to the container.
+//builder.Services.AddRazorPages();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+//var app = builder.Build();
+
+//// Configure the HTTP request pipeline.
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseExceptionHandler("/Error");
+//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+//    app.UseHsts();
+//}
+
+//app.UseHttpsRedirection();
+//app.UseStaticFiles();
+
+//app.UseRouting();
+
+//app.UseAuthorization();
+
+//app.MapRazorPages();
+////app.UseStartup<Startup>(); // Add this line to configure with Startup class
+//app.Run();
+
+
+
+
+namespace CraftsOnline.website
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    public class Program
+    {
+        public static void Main(string[] args) =>
+            CreateHostBuilder(args).Build().Run();
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
-
-app.Run();

@@ -21,9 +21,7 @@ namespace CraftsOnline.website
             services.AddServerSideBlazor();
             services.AddHttpClient();
             services.AddControllers();
-            /*services.AddTransient<JsonFileProductService>();*/
             services.AddSingleton<JsonFileProductService>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
