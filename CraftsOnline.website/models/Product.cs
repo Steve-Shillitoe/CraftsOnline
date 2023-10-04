@@ -18,6 +18,4 @@ namespace CraftsOnline.website.models
 
         public override string ToString() => JsonSerializer.Serialize<Product>(this);
         }
-
-    }
 }

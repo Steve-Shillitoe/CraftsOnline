@@ -1,7 +1,11 @@
-﻿using CraftsOnline.website.models;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text.Json;
+using CraftsOnline.website.models;
+using Microsoft.AspNetCore.Hosting;
 
-namespace CraftsOnline.WebSite.Services
+namespace CraftsOnline.website.Services
 {
     public class JsonFileProductService
     {

@@ -1,11 +1,11 @@
-﻿using CraftsOnline.WebSite.Services;
+﻿using CraftsOnline.website.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CraftsOnline.WebSite
+namespace CraftsOnline.website
 {
     public class Startup
     {
@@ -21,7 +21,9 @@ namespace CraftsOnline.WebSite
             services.AddServerSideBlazor();
             services.AddHttpClient();
             services.AddControllers();
-            services.AddTransient<JsonFileProductService>();
+            /*services.AddTransient<JsonFileProductService>();*/
+            services.AddSingleton<JsonFileProductService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
