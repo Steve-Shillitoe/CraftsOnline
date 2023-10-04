@@ -14,7 +14,7 @@ namespace CraftsOnline.website.models
         public string? Url { get; set; }
         public string? Title { get; set; }
         public string? Description {  get; set; }
-        public int[]? ratings { get; set; }
+        public int[]? Ratings { get; set; }
 
         public override string ToString() => JsonSerializer.Serialize<Product>(this);
         }
