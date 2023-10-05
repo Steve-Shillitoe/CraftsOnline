@@ -1,9 +1,11 @@
-﻿using CraftsOnline.website.Services;
+﻿using CraftsOnline.website.models;
+using CraftsOnline.website.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json;
 
 namespace CraftsOnline.website
 {
@@ -51,12 +53,12 @@ namespace CraftsOnline.website
                 endpoints.MapControllers();
                 endpoints.MapBlazorHub();
 
-                // endpoints.MapGet("/products", (context) => 
-                // {
-                //     var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
-                //     var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
-                //     return context.Response.WriteAsync(json);
-                // });
+                endpoints.MapGet("/products", (context) =>
+                {
+                    var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
+                    var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+                    return context.Response.WriteAsync(json);
+                });
             });
         }
     }
