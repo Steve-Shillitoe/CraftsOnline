@@ -9,8 +9,8 @@ namespace CraftsOnline.website.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        public ProductsController(JsonFileProductService productService) 
-        { 
+        public ProductsController(JsonFileProductService productService)
+        {
             this.ProductService = productService;
         }
 
@@ -20,6 +20,15 @@ namespace CraftsOnline.website.Controllers
         public IEnumerable<Product> Get()
         {
             return ProductService.GetProducts();
+        }
+
+        [Route("Rate")]
+        [HttpGet]
+        public ActionResult Get([FromQuery] string ProductID,
+                                [FromQuery] int Rating)
+        {
+            ProductService.AddRating(ProductID, Rating);
+            return Ok();
         }
     }
 }
