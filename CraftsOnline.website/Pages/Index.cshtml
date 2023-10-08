@@ -1,5 +1,5 @@
 ﻿@page
-@using CraftsOnline.website.Components //Supplies ProductList below
+@using CraftsOnline.website.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -7,7 +7,6 @@
 
 <div class="text-center">
     <h1 class="display-4">Crafts Online</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
 @(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
