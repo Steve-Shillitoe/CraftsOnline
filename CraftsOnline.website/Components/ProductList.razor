@@ -9,19 +9,25 @@
     @foreach (var product in ProductService.GetProducts())
     {
         <div class="card">
-            <div class="card-img" style="background-image:url('@product.Image'); "></div>
+            <div class="card-img" style="background-image:url('@product.Image'); 
+                        background-size: 33% auto;
+                        background-repeat: no-repeat;
+                        background-position: center; "></div>
             <div class="card-body">
                 <h5 class="card-title">@product.Title</h5>
             </div>
         </div>
-    }
-    <div class="card-footer">
-        <small class="text-muted">
-            <button onclick="e=>SelectProduct(product.Id)"
-                data-toggle="modal" data-target="#productModel" class="btn btn-primary">More Info</button>
-        </small>
+        <div class="card-footer">
+            <small class="text-muted">
+                <button @onclick="e=>SelectProduct(product.Id)"
+                        data-toggle="modal" data-target="#productModel" class="btn btn-primary">
+                    More Info
+                </button>
+            </small>
 
-    </div>
+        </div>
+    }
+    
 </div>
 
 @code {
